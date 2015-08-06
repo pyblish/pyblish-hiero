@@ -12,6 +12,5 @@ class SelectCurrentFile(pyblish.api.Selector):
     def process(self, context):
         """Todo, inject the current working file"""
 
-        project = hiero.ui.activeView().selection()[0].project()
-
+        project = context.data('activeProject')
         context.set_data('currentFile', value=project.path())

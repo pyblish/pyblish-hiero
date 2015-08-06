@@ -46,9 +46,13 @@ def setup(console=False):
 
     register_plugins()
     add_to_filemenu()
+    register_host()
 
     pyblish_integration.echo("pyblish: Integration loaded..")
 
+def register_host():
+    """Register supported hosts"""
+    pyblish.api.register_host("hiero")
 
 def register_plugins():
     # Register accompanying plugins
@@ -92,9 +96,6 @@ def where(program):
 def filemenu_publish():
     """Add Pyblish to file-menu"""
 
-    import pyblish.util
-    pyblish.util.publish()
-    """
     try:
         import pyblish_hiero.lib
         pyblish_hiero.lib.show()
@@ -109,7 +110,6 @@ def filemenu_publish():
 
         import pyblish.util
         pyblish.util.publish()
-    """
 
 
 def menu_action():
