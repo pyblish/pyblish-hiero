@@ -18,8 +18,7 @@ import plugins
 cached_process = None
 
 
-def show():
-    pyblish_integration.show()
+show = pyblish_integration.show
 
 
 def setup(console=False):
@@ -28,7 +27,6 @@ def setup(console=False):
     Registers Pyblish for Hiero plug-ins and appends an item to the File-menu
 
     Attributes:
-        preload (bool): Preload the current GUI
         console (bool): Display console with GUI
 
     """
@@ -50,9 +48,11 @@ def setup(console=False):
 
     pyblish_integration.echo("pyblish: Integration loaded..")
 
+
 def register_host():
     """Register supported hosts"""
     pyblish.api.register_host("hiero")
+
 
 def register_plugins():
     # Register accompanying plugins

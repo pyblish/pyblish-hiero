@@ -3,7 +3,6 @@ import pyblish.api
 import hiero
 
 
-@pyblish.api.log
 class SelectCurrentFile(pyblish.api.Selector):
     """Inject the current working file into context"""
 

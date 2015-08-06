@@ -3,7 +3,6 @@ import pyblish.api
 import hiero
 
 
-@pyblish.api.log
 class SelectHostVersion(pyblish.api.Selector):
     """Inject the hosts version into context"""
 

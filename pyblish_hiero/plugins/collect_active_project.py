@@ -3,7 +3,6 @@ import pyblish.api
 import hiero
 
 
-@pyblish.api.log
 class CollectActiveProject(pyblish.api.Collector):
     """Inject the active project into context"""
 

@@ -1,7 +1,6 @@
 import pyblish.api
 
 
-@pyblish.api.log
 class SelectHost(pyblish.api.Selector):
     """Inject the host into context"""
 
