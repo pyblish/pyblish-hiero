@@ -31,10 +31,6 @@ def setup(console=False):
 
     """
 
-    if not os.name == "nt":
-        return pyblish_integration.echo("Sorry, integration only"
-                                        "supported on Windows.")
-
     def threaded_wrapper(func, *args, **kwargs):
         return hiero.core.executeInMainThreadWithResult(func, *args, **kwargs)
 
@@ -139,6 +135,7 @@ def add_to_filemenu():
     # And to enable the Ctrl/Cmd+Alt+C, add it to the Menu bar Edit menu...
     editMenu = hiero.ui.findMenuAction("Edit")
     editMenu.menu().addAction(SelectedShotAction)
+
 
 class PublishAction(PySide.QtGui.QAction):
 
