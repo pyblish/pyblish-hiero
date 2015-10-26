@@ -40,12 +40,16 @@ For this to work, add the `pyblish_hiero/hiero_plugin_path` directory to your `H
 pyblish-hiero/pyblish_hiero/hiero_plugin_path
 ```
 
-As you will find, this directory contains sub-directories leading to two python files; `pyblish_startup.py` and `active_project_tracker.py`.
+As you will find, this directory contains sub-directories leading to two python files; `pyblish_startup.py`, `active_project_tracker.py` and `selection_tracker.py`.
 
 **pyblish_startup.py**
 
 This sets up Pyblish similar to `pyblish_hiero.setup()`
 
-**active_project_tracker**
+**active_project_tracker.py**
 
 This ensures that you can access the active project outside of Hiero, via `hiero.activeProject`. This is also injected into the context, so you can easily access the active project with `context.data('activeProject')`
+
+**selection_tracker.py**
+
+This ensures that you can access the active selection outside of Hiero, via `hiero.selection`. This is also injected into the context, so you can easily access the active selection with `context.data('selection')`
