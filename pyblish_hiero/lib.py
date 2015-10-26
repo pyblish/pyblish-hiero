@@ -2,7 +2,6 @@
 import os
 import sys
 import traceback
-import contextlib
 
 # Pyblish libraries
 import pyblish.api
@@ -23,12 +22,9 @@ show = pyblish_integration.show
 
 def setup(console=False):
     """Setup integration
-
     Registers Pyblish for Hiero plug-ins and appends an item to the File-menu
-
     Attributes:
         console (bool): Display console with GUI
-
     """
 
     def threaded_wrapper(func, *args, **kwargs):
@@ -59,14 +55,11 @@ def register_plugins():
 
 def where(program):
     """Parse PATH for executables
-
     Windows note:
         PATHEXT yields possible suffixes, such as .exe, .bat and .cmd
-
     Usage:
         >>> where("python")
         c:\python27\python.exe
-
     """
 
     suffixes = [""]
@@ -138,13 +131,15 @@ def add_to_filemenu():
 
 
 class PublishAction(PySide.QtGui.QAction):
-
     def __init__(self):
         PySide.QtGui.QAction.__init__(self, "Publish", None)
         self.triggered.connect(self.publish)
-        hiero.core.events.registerInterest("kShowContextMenu/kTimeline", self.eventHandler)
-        hiero.core.events.registerInterest("kShowContextMenu/kBin", self.eventHandler)
-        hiero.core.events.registerInterest("kShowContextMenu/kSpreadsheet", self.eventHandler)
+
+        for interest in ["kShowContextMenu/kTimeline",
+                         "kShowContextMenukBin",
+                         "kShowContextMenu/kSpreadsheet"]:
+            hiero.core.events.registerInterest(interest, self.eventHandler)
+
         self.setShortcut("Ctrl+Alt+P")
 
     def publish(self):
@@ -154,4 +149,4 @@ class PublishAction(PySide.QtGui.QAction):
     def eventHandler(self, event):
 
         # Add the Menu to the right-click menu
-        event.menu.addAction( self )
+        event.menu.addAction(self)
