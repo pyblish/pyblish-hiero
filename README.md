@@ -48,8 +48,8 @@ This sets up Pyblish similar to `pyblish_hiero.setup()`
 
 **active_project_tracker.py**
 
-This ensures that you can access the active project outside of Hiero, via `hiero.activeProject`. This is also injected into the context, so you can easily access the active project with `context.data('activeProject')`
+This ensures that you can access the active project outside of Hiero, via `hiero.activeProject` which is added to the ```hiero``` module by this tracker. This is also injected into the context, so you can easily access the active project with `context.data('activeProject')`
 
 **selection_tracker.py**
 
-This ensures that you can access the active selection outside of Hiero, via `hiero.selection`. This is also injected into the context, so you can easily access the active selection with `context.data('selection')`
+This ensures that you can access the active selection outside of Hiero, via `hiero.selection` which is added to the ```hiero``` module by this tracker. This is also injected into the context, so you can easily access the active selection with `context.data('selection')`
