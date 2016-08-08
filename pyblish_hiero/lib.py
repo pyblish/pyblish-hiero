@@ -137,16 +137,12 @@ def add_to_filemenu():
     action = PySide.QtGui.QAction('Publish', None)
     action.triggered.connect(menu_action)
 
-    hiero.ui.insertMenuAction(action, file_menu, before='Import Clips...')
+    hiero.ui.insertMenuAction(action, file_menu, after='Close Project')
     action = file_menu.addSeparator()
-    hiero.ui.insertMenuAction(action, file_menu, before='Import Clips...')
+    hiero.ui.insertMenuAction(action, file_menu, after='Close Project')
 
     # The act of initialising the action adds it to the right-click menu...
-    SelectedShotAction = PublishAction()
-
-    # And to enable the Ctrl/Cmd+Alt+C, add it to the Menu bar Edit menu...
-    editMenu = hiero.ui.findMenuAction("Edit")
-    editMenu.menu().addAction(SelectedShotAction)
+    PublishAction()
 
 
 class PublishAction(PySide.QtGui.QAction):
@@ -192,7 +188,7 @@ def _show_no_gui():
     )
 
     spacer = QtWidgets.QWidget()
-    #spacer.setMinimumSize(400, 0)
+    spacer.setMinimumSize(400, 0)
     spacer.setSizePolicy(QtWidgets.QSizePolicy.Minimum,
                          QtWidgets.QSizePolicy.Expanding)
 
