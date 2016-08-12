@@ -7,7 +7,7 @@ import pyblish.api
 
 # Host libraries
 import hiero
-import PySide
+from PySide import QtGui
 
 # Local libraries
 from . import plugins
@@ -134,7 +134,7 @@ def add_to_filemenu():
 
     file_menu = file_action.menu()
 
-    action = PySide.QtGui.QAction('Publish', None)
+    action = QtGui.QAction('Publish', None)
     action.triggered.connect(menu_action)
 
     hiero.ui.insertMenuAction(action, file_menu, after='Close Project')
@@ -145,9 +145,9 @@ def add_to_filemenu():
     PublishAction()
 
 
-class PublishAction(PySide.QtGui.QAction):
+class PublishAction(QtGui.QAction):
     def __init__(self):
-        PySide.QtGui.QAction.__init__(self, "Publish", None)
+        QtGui.QAction.__init__(self, "Publish", None)
         self.triggered.connect(self.publish)
 
         for interest in ["kShowContextMenu/kTimeline",
@@ -174,12 +174,7 @@ def _show_no_gui():
     through how to get set up with one.
     """
 
-    try:
-        from pyblish_hiero.vendor.Qt import QtWidgets, QtGui
-    except ImportError:
-        raise ImportError("Pyblish requires either PySide or PyQt bindings.")
-
-    messagebox = QtWidgets.QMessageBox()
+    messagebox = QtGui.QMessageBox()
     messagebox.setIcon(messagebox.Warning)
     messagebox.setWindowIcon(QtGui.QIcon(os.path.join(
         os.path.dirname(pyblish.__file__),
@@ -187,10 +182,10 @@ def _show_no_gui():
         "logo-32x32.svg"))
     )
 
-    spacer = QtWidgets.QWidget()
+    spacer = QtGui.QWidget()
     spacer.setMinimumSize(400, 0)
-    spacer.setSizePolicy(QtWidgets.QSizePolicy.Minimum,
-                         QtWidgets.QSizePolicy.Expanding)
+    spacer.setSizePolicy(QtGui.QSizePolicy.Minimum,
+                         QtGui.QSizePolicy.Expanding)
 
     layout = messagebox.layout()
     layout.addWidget(spacer, layout.rowCount(), 0, 1, layout.columnCount())
