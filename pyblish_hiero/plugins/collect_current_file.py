@@ -1,12 +1,10 @@
 import pyblish.api
 
-import hiero
 
-
-class SelectCurrentFile(pyblish.api.Selector):
+class CollectCurrentFile(pyblish.api.ContextPlugin):
     """Inject the current working file into context"""
 
-    version = (0, 1, 0)
+    order = pyblish.api.CollectorOrder
 
     def process(self, context):
         """Todo, inject the current working file"""
