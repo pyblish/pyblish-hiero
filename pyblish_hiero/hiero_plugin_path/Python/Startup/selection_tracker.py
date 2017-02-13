@@ -1,4 +1,4 @@
-"""Puts the active project into 'hiero.activeProject'"""
+"""Puts the selection project into 'hiero.selection'"""
 
 import hiero
 
