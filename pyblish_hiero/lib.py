@@ -7,7 +7,7 @@ import pyblish.api
 
 # Host libraries
 import hiero
-from Qt import QtWidgets
+from .vendor.Qt import QtWidgets
 
 # Local libraries
 from . import plugins
